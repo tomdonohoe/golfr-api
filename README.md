@@ -8,17 +8,14 @@ Golfr is an API to create, read, update and delete golf score tracking data.
 $ npm install
 ```
 
-## Running the app
+## Run the app
 
 ```bash
-# development
-$ npm run start
+# Build Docker:
+$ make build
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+# Watch mode within docker container:
+$ make start
 ```
 
 ## Test
