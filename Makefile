@@ -4,7 +4,6 @@ DB_HOST=golfr-api-db
 DB_USER=golfr
 DB_PASS=golfr
 DB_NAME=golfr
-SQL_TERMINATE_CONNECTIONS='SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = '$(DB_NAME)' AND pid <> pg_backend_pid();'
 
 ###################################
 # Docker
