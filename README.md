@@ -5,7 +5,7 @@ Golfr is an API to create, read, update and delete golf score tracking data.
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Run the app
@@ -22,13 +22,13 @@ $ make start
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn run test
 
 # e2e tests
-$ npm run test:e2e
+$ yarn run test:e2e
 
 # test coverage
-$ npm run test:cov
+$ yarn run test:cov
 ```
 
 ## Features

@@ -5,5 +5,5 @@ build:
 .PHONY: build
 
 start:
-	docker run -p 3000:3000 --rm --entrypoint sh $(APP_NAME) -c 'npm run start:dev'
+	docker run --init -p 3000:3000 --rm --entrypoint sh $(APP_NAME) -c 'yarn run start:dev'
 .PHONY: start
