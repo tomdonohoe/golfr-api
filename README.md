@@ -11,12 +11,34 @@ $ yarn install
 ## Run the app
 
 ```bash
-# Build Docker:
-$ make build
+# Build docker dev container:
+$ make docker-build
 
-# Watch mode within docker container:
-$ make start
+# Run watch mode within docker container:
+$ make docker-up
 ```
+
+
+## Database
+
+```bash
+# generates a migration file according to entities
+$ make migrate-generate name=migration-name	
+
+# Run database migrations against the running docker postgres database
+$ make migrate
+
+# Creates a brand new database in the running docker postgres.
+$ make create-database
+
+# Drops the database in the running docker postgres database
+$ make drop-database
+
+# Drops and recreates the database in the running docker postgres database
+$ make recreate-database
+```
+
+NOTE: if you get error `ERROR:  database "golfr" is being accessed by other users` you will need to disconnect your pgadmin server connection.
 
 ## Test
 

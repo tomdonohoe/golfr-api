@@ -2,3 +2,4 @@ plan/
 node_modules/
 .env
 dist
+application.env
