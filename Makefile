@@ -59,3 +59,35 @@ drop-database:
 
 recreate-database: drop-database create-database
 .PHONY: recreate-database
+
+###################################
+# Linting & Formatting
+###################################
+
+format:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run format:nofix'
+.PHONY: format
+
+format-fix:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run format'
+.PHONY: format-fix
+
+lint:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run lint:nofix'
+.PHONY: lint
+
+lint-fix:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run lint'
+.PHONY: lint-fix
+
+###################################
+# Test
+###################################
+
+test:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run test:cov'
+.PHONY: test
+
+test-e2e:
+	docker-compose run --rm --entrypoint=sh $(APP_NAME) -c 'yarn run test:e2e'
+.PHONY: test
