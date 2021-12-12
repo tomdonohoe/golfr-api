@@ -15,7 +15,10 @@ services:
       - ./tsconfig.json:/app/tsconfig.json
       - ./tsconfig.build.json:/app/tsconfig.build.json
       - ./ormconfig.js:/app/ormconfig.js
-      - ./app/node_modules
+      - ./.eslintrc.js:/app/.eslintrc.js
+      - ./.prettierrc:/app/.prettierrc
+      - ./jest.config.ts:/app/jest.config.ts
+      - /app/node_modules
     env_file: ./application.env
     entrypoint: yarn
     command: run start:dev

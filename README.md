@@ -40,16 +40,43 @@ $ make recreate-database
 
 NOTE: if you get error `ERROR:  database "golfr" is being accessed by other users` you will need to disconnect your pgadmin server connection.
 
+## Code Formatting & Linting
+```bash
+# checks for files that need formatting (prettier)
+$ make format
+
+# automatically fixes files that need formatting (prettier)
+$ make format-fix
+
+# checks for linting errors (eslint)
+$ make lint
+
+# automatically fixes linting errors (eslint)
+$ make lint-fix
+```
+
 ## Test
 
 ```bash
-# unit tests
+# unit tests with coverage report in docker
+$ make test
+
+# e2e tests in docker
+$ make test-e2e
+
+# unit tests (locally)
 $ yarn run test
 
-# e2e tests
+# run specific module (locally)
+$ yarn run test ./src/module
+
+# run specific test (locally)
+$ yarn run test ./src/module/test-name.spec.ts
+
+# e2e tests (locally)
 $ yarn run test:e2e
 
-# test coverage
+# test coverage (locally)
 $ yarn run test:cov
 ```
 
@@ -88,7 +115,7 @@ I will use:
 - NestJS (https://nestjs.com/)
 - Typescript
 - Typeorm (https://typeorm.io/) 
-- mysql
+- postgres
 - Docker
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
