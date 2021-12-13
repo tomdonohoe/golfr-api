@@ -1,0 +1,13 @@
+name: Docker Lint & Test CI
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "+++ :docker: Building image..."
+      run: docker build -t golfr-api .
+    - name: "+++ :eslint: Runnning linter..."
+      run: docker run --rm --entrypoint=sh golfr-api -c 'yarn run lint:nofix'
+    - name: "+++ :jest: Runnning tests..."
+      run: docker run --rm --entrypoint=sh golfr-api -c 'yarn run test:cov'
