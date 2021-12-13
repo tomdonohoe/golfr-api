@@ -6,8 +6,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "+++ :docker: Building image..."
-      run: docker build -t golfr-api:$(date +%s) .
+      run: docker build -t golfr-api .
     - name: "+++ :eslint: Runnning linter..."
-      run: make test
+      run: docker run --rm --entrypoint=sh golfr-api -c 'yarn run lint:nofix'
     - name: "+++ :jest: Runnning tests..."
-      run: make lint
+      run: docker run --rm --entrypoint=sh golfr-api -c 'yarn run test:cov'
