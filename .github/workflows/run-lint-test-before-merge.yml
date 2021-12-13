@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --t golfr-api:$(date +%s)
-    - name: Tests
+    - name: "+++ :docker: Building image..."
+      run: docker build -t golfr-api:$(date +%s) .
+    - name: "+++ :eslint: Runnning linter..."
       run: make test
-    - name: Lint
+    - name: "+++ :jest: Runnning tests..."
       run: make lint
