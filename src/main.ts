@@ -9,4 +9,6 @@ async function bootstrap() {
   await app.listen(config.get('port'));
 }
 
+console.log('oops');
+
 bootstrap();
